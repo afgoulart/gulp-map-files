@@ -1,0 +1,37 @@
+{
+  "name": "gulp-map-files",
+  "version": "1.0.0",
+  "description": "Map many files to Buffer file",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/afgoulart/gulp-map-files.git"
+  },
+  "keywords": [
+    "concatenate",
+    "concat",
+    "json",
+    "map",
+    "files",
+    "templates",
+    "mustache",
+    "ejs",
+    "underscore",
+    "tpl",
+    "doT",
+    "handlebars",
+    "riot"
+  ],
+  "author": "afgoulart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afgoulart/gulp-map-files/issues"
+  },
+  "homepage": "https://github.com/afgoulart/gulp-map-files#readme"
+}
