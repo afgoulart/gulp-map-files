@@ -37,6 +37,7 @@
   "devDependencies": {},
   "dependencies": {
     "gulp": "^3.9.1",
+    "gulp-concat-util": "^0.5.5",
     "gulp-util": "^3.0.7",
     "mocha": "^2.4.5",
     "path": "^0.12.7",

@@ -1,9 +1,10 @@
 var path        = require('path');
 var through     = require('through2');
+var concat      = require('gulp-concat-util');
 var PluginError = require('gulp-util').PluginError;
 var util        = require('util');
 
-module.exports = function (file, opt) {
+function gulpMapFiles(file, opt) {
   if (!file) {
     throw new PluginError('gulp-map-files', 'Missing file option for gulp-map-files');
   }
@@ -30,7 +31,7 @@ module.exports = function (file, opt) {
     }
 
     if (file.isStream()) {
-      this.emit('error', new PluginError('gulp-map-files', 'Streams are not supported.'));
+      this.emit('error', new PluginError('gulp-map-files', 'Streaming not supported'));
       callback();
       return;
     }
@@ -71,3 +72,7 @@ module.exports = function (file, opt) {
 
   return through.obj(bufferContents, endStream);
 }
+
+module.exports = gulpMapFiles;
+module.exports.header = concat.header;
+module.exports.footer = concat.footer;

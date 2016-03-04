@@ -44,16 +44,14 @@ describe('gulp-map-files', function() {
     });
 
     // TODO: file.isStream()??
-    // it('should emit error on streamed file', function (done) {
-    //   gulp.src(fixtures('*'), {buffers: false, read: false})
-    //     .pipe(gulpMapFiles('test.js'))
-    //     .on('error', function (err) {
-    //       console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    //       err.message.should.eql('Streaming not supported');
-    //       done();
-    //       return;
-    //     });
-    // });
+    it('should emit error on streamed file', function (done) {
+      gulp.src(fixtures('*'), {buffer: false})
+        .pipe(gulpMapFiles('test.js'))
+        .on('error', function (err) {
+          err.message.should.eql('Streaming not supported');
+          done();
+        });
+    });
 
     it('should mapping one file', function (done) {
       test('wadap')
