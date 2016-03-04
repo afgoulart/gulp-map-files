@@ -2,6 +2,8 @@
 
 > Gulp task to map files and export a content of the buffer in json.
 
+[ ![Codeship Status for afgoulart/gulp-map-files](https://codeship.com/projects/b2312090-c47e-0133-3a37-265f477b0567/status?branch=master)](https://codeship.com/projects/138388)
+
 This implementation is relatively closes to the original [gulp-concat](https://github.com/wearefractal/gulp-concat) plugin.
 
 However this plugin provides `.header()` & `.footer()` helpers used in complex build worflow of gulp-concat-util.
