@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -33,5 +33,18 @@
   "bugs": {
     "url": "https://github.com/afgoulart/gulp-map-files/issues"
   },
-  "homepage": "https://github.com/afgoulart/gulp-map-files#readme"
+  "homepage": "https://github.com/afgoulart/gulp-map-files#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.4.5",
+    "path": "^0.12.7",
+    "plugin-error": "^0.1.2",
+    "should": "^8.2.2",
+    "stream-array": "^1.1.1",
+    "stream-assert": "^2.0.3",
+    "through2": "^2.0.1",
+    "util": "^0.10.3"
+  }
 }

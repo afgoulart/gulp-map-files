@@ -1,11 +1,11 @@
 var path        = require('path');
 var through     = require('through2');
-var PluginError = require('plugin-error');
+var PluginError = require('gulp-util').PluginError;
 var util        = require('util');
 
 module.exports = function (file, opt) {
   if (!file) {
-    throw new PluginError('gulp-files-to-object', 'Missing file option for gulp-files-to-object');
+    throw new PluginError('gulp-map-files', 'Missing file option for gulp-map-files');
   }
 
   opt = opt || {};
@@ -13,14 +13,14 @@ module.exports = function (file, opt) {
   var latestFile;
   var latestMod;
   var fileName;
-  var mustacheParts = {};
+  var mapParts = {};
 
   if (typeof file === 'string') {
     fileName = file;
   } else if (typeof file.path === 'string') {
     fileName = path.basename(file.path);
   } else {
-    throw new PluginError('gulp-files-to-object', 'Missing path in file options for gulp-files-to-object');
+    throw new PluginError('gulp-map-files', 'Missing path in file options for gulp-map-files');
   }
 
   function bufferContents(file, enc, callback){
@@ -30,14 +30,12 @@ module.exports = function (file, opt) {
     }
 
     if (file.isStream()) {
-      this.emit('error', new PluginError({
-        plugin: 'gulp-files-to-object',
-        message: 'Streams are not supported.'
-      }));
-      return callback();
+      this.emit('error', new PluginError('gulp-map-files', 'Streams are not supported.'));
+      callback();
+      return;
     }
 
-    mustacheParts[path.basename(file.path, '.mustache')] = file.contents.toString();
+    mapParts[path.basename(file.path, path.extname(file.path))] = file.contents.toString();
 
     if (!latestMod || file.stat && file.stat.mtime > latestMod) {
       latestFile = file;
@@ -47,10 +45,10 @@ module.exports = function (file, opt) {
     callback();
   }
 
-  function endStream(cb) {
+  function endStream(callback) {
     // no files passed in, no file goes out
-    if (!latestFile || !Object.keys(mustacheParts).length ) {
-      cb();
+    if (!latestFile || !Object.keys(mapParts).length ) {
+      callback();
       return;
     }
 
@@ -65,10 +63,10 @@ module.exports = function (file, opt) {
       joinedFile = new File(file);
     }
 
-    joinedFile.contents = new Buffer(JSON.stringify(mustacheParts));
+    joinedFile.contents = new Buffer(JSON.stringify(mapParts));
 
     this.push(joinedFile);
-    cb();
+    callback();
   }
 
   return through.obj(bufferContents, endStream);
