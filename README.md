@@ -57,7 +57,11 @@ gulp.task('concat:dist', function() {
 
 ## Testing
 
-###
+### Execute test
+
+```bash
+npm test
+```
 
 ## Contributing
 

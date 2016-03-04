@@ -1,0 +1,13 @@
+<testsuite name="Mocha Tests" tests="11" failures="0" errors="0" skipped="0" timestamp="2016-03-04T22:02:43" time="0.057">
+<testcase classname="gulp-map-files gulpMapFiles()" name="should throw, when arguments is missing" time="0.003"/>
+<testcase classname="gulp-map-files gulpMapFiles()" name="should ignore null files" time="0.006"/>
+<testcase classname="gulp-map-files gulpMapFiles()" name="should emit error on streamed file" time="0.015"/>
+<testcase classname="gulp-map-files gulpMapFiles()" name="should mapping one file" time="0.006"/>
+<testcase classname="gulp-map-files gulpMapFiles()" name="should mapping multiple files" time="0.001"/>
+<testcase classname="gulp-map-files gulpMapFiles()" name="should mapping buffers" time="0"/>
+<testcase classname="gulp-map-files gulpMapFiles()" name="should preserve mode from files" time="0.001"/>
+<testcase classname="gulp-map-files gulpMapFiles()" name="should take path from latest file" time="0.007"/>
+<testcase classname="gulp-map-files gulpMapFiles()" name="should preserve relative path from files" time="0.001"/>
+<testcase classname="gulp-map-files gulpMapFiles() should not fail if no files were input" name="when argument is a string" time="0"/>
+<testcase classname="gulp-map-files gulpMapFiles() should not fail if no files were input" name="when argument is an object" time="0"/>
+</testsuite>

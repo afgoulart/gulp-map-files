@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -R xunit-file"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,9 @@
     "url": "https://github.com/afgoulart/gulp-map-files/issues"
   },
   "homepage": "https://github.com/afgoulart/gulp-map-files#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "xunit-file": "0.0.9"
+  },
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-concat-util": "^0.5.5",
